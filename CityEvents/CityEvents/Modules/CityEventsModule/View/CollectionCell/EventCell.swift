@@ -13,7 +13,6 @@ class EventCollectionCell: UICollectionViewCell {
     
     private let eventImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "imagePlaceHolder")
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
         image.layer.cornerRadius = 15
@@ -23,7 +22,6 @@ class EventCollectionCell: UICollectionViewCell {
     
     private let eventTitle: UILabel = {
         let label = UILabel()
-        label.text = "Welcome to some event"
         label.font = UIFont(name: "AvenirNext-DemiBold ", size: 10)
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
@@ -59,3 +57,14 @@ class EventCollectionCell: UICollectionViewCell {
             eventTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
+    
+    func setupCell(model: EventModel) {
+        eventTitle.text = model.title ?? "Welcome"
+        if let urlString = model.images?.first, let url = URL(string: urlString) {
+            eventImageView.load(url: url)
+        }
+        else {
+            eventImageView.image = UIImage(named: "imagePlaceHolder")
+        }
+    }
+}

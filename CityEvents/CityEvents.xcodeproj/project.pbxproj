@@ -17,6 +17,7 @@
 		6761A52728AFF7E000135C81 /* CityEventsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A52628AFF7E000135C81 /* CityEventsInteractor.swift */; };
 		6761A52B28B0026B00135C81 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A52A28B0026B00135C81 /* EventCell.swift */; };
 		6761A52E28B0062300135C81 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A52D28B0062300135C81 /* UIImageView+extension.swift */; };
+		6761A53328B00A1A00135C81 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A53228B00A1A00135C81 /* EventModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6761A52628AFF7E000135C81 /* CityEventsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEventsInteractor.swift; sourceTree = "<group>"; };
 		6761A52A28B0026B00135C81 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		6761A52D28B0062300135C81 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
+		6761A53228B00A1A00135C81 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		6761A52828AFFA3400135C81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6761A53228B00A1A00135C81 /* EventModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6761A50928AFE6CF00135C81 /* CityEventsViewController.swift in Sources */,
+				6761A53328B00A1A00135C81 /* EventModel.swift in Sources */,
 				6761A51C28AFF63500135C81 /* MainRouter.swift in Sources */,
 				6761A50528AFE6CF00135C81 /* AppDelegate.swift in Sources */,
 				6761A52E28B0062300135C81 /* UIImageView+extension.swift in Sources */,

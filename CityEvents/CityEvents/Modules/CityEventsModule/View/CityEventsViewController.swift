@@ -27,6 +27,7 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
     }()
     
     var presenter: CityEventsPresenterProtocol?
+    var models: [EventModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,9 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
     }
     
     private func setupUI() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Events in Moscow"
+        
         view.addSubview(eventsCollectionView)
         
         NSLayoutConstraint.activate([
@@ -46,14 +50,18 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
         ])
     }
 }
+
 //MARK: CollectionView DataSource&Delegate
 extension CityEventsView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        models?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionCell.identifier, for: indexPath) as? EventCollectionCell else { return UICollectionViewCell() }
+        if let item = models?[indexPath.row] {
+            cell.setupCell(model: item)
+        }
         return cell
     }
     
