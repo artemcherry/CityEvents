@@ -8,18 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		6761A50528AFE6CF00135C81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A50428AFE6CF00135C81 /* AppDelegate.swift */; };
-		6761A50928AFE6CF00135C81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A50828AFE6CF00135C81 /* ViewController.swift */; };
+		6761A50928AFE6CF00135C81 /* CityEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A50828AFE6CF00135C81 /* CityEventsViewController.swift */; };
 		6761A50E28AFE6D000135C81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6761A50D28AFE6D000135C81 /* Assets.xcassets */; };
 		6761A51128AFE6D000135C81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6761A50F28AFE6D000135C81 /* LaunchScreen.storyboard */; };
+		6761A51A28AFF61500135C81 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A51928AFF61500135C81 /* ModuleBuilder.swift */; };
+		6761A51C28AFF63500135C81 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A51B28AFF63500135C81 /* MainRouter.swift */; };
+		6761A52528AFF78D00135C81 /* CityEventsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A52428AFF78D00135C81 /* CityEventsPresenter.swift */; };
+		6761A52728AFF7E000135C81 /* CityEventsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A52628AFF7E000135C81 /* CityEventsInteractor.swift */; };
+		6761A52B28B0026B00135C81 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A52A28B0026B00135C81 /* EventCell.swift */; };
+		6761A52E28B0062300135C81 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A52D28B0062300135C81 /* UIImageView+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6761A50128AFE6CF00135C81 /* CityEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6761A50428AFE6CF00135C81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6761A50828AFE6CF00135C81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6761A50828AFE6CF00135C81 /* CityEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEventsViewController.swift; sourceTree = "<group>"; };
 		6761A50D28AFE6D000135C81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6761A51028AFE6D000135C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6761A51228AFE6D000135C81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6761A51928AFF61500135C81 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		6761A51B28AFF63500135C81 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		6761A52428AFF78D00135C81 /* CityEventsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEventsPresenter.swift; sourceTree = "<group>"; };
+		6761A52628AFF7E000135C81 /* CityEventsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEventsInteractor.swift; sourceTree = "<group>"; };
+		6761A52A28B0026B00135C81 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		6761A52D28B0062300135C81 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +64,91 @@
 		6761A50328AFE6CF00135C81 /* CityEvents */ = {
 			isa = PBXGroup;
 			children = (
-				6761A50428AFE6CF00135C81 /* AppDelegate.swift */,
-				6761A50828AFE6CF00135C81 /* ViewController.swift */,
+				6761A52328AFF71B00135C81 /* AppSettings */,
+				6761A51D28AFF6A900135C81 /* Modules */,
+				6761A52C28B0061000135C81 /* Extensions */,
 				6761A50D28AFE6D000135C81 /* Assets.xcassets */,
 				6761A50F28AFE6D000135C81 /* LaunchScreen.storyboard */,
 				6761A51228AFE6D000135C81 /* Info.plist */,
 			);
 			path = CityEvents;
+			sourceTree = "<group>";
+		};
+		6761A51D28AFF6A900135C81 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6761A52828AFFA3400135C81 /* Model */,
+				6761A51928AFF61500135C81 /* ModuleBuilder.swift */,
+				6761A51B28AFF63500135C81 /* MainRouter.swift */,
+				6761A51E28AFF6BB00135C81 /* CityEventsModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		6761A51E28AFF6BB00135C81 /* CityEventsModule */ = {
+			isa = PBXGroup;
+			children = (
+				6761A51F28AFF6E600135C81 /* View */,
+				6761A52128AFF6F400135C81 /* Presenter */,
+				6761A52228AFF6FA00135C81 /* Interactor */,
+			);
+			path = CityEventsModule;
+			sourceTree = "<group>";
+		};
+		6761A51F28AFF6E600135C81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6761A52928B0012900135C81 /* CollectionCell */,
+				6761A50828AFE6CF00135C81 /* CityEventsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6761A52128AFF6F400135C81 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6761A52428AFF78D00135C81 /* CityEventsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6761A52228AFF6FA00135C81 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				6761A52628AFF7E000135C81 /* CityEventsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6761A52328AFF71B00135C81 /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				6761A50428AFE6CF00135C81 /* AppDelegate.swift */,
+			);
+			path = AppSettings;
+			sourceTree = "<group>";
+		};
+		6761A52828AFFA3400135C81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6761A52928B0012900135C81 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				6761A52A28B0026B00135C81 /* EventCell.swift */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		6761A52C28B0061000135C81 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6761A52D28B0062300135C81 /* UIImageView+extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +221,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6761A50928AFE6CF00135C81 /* ViewController.swift in Sources */,
+				6761A50928AFE6CF00135C81 /* CityEventsViewController.swift in Sources */,
+				6761A51C28AFF63500135C81 /* MainRouter.swift in Sources */,
 				6761A50528AFE6CF00135C81 /* AppDelegate.swift in Sources */,
+				6761A52E28B0062300135C81 /* UIImageView+extension.swift in Sources */,
+				6761A52528AFF78D00135C81 /* CityEventsPresenter.swift in Sources */,
+				6761A52728AFF7E000135C81 /* CityEventsInteractor.swift in Sources */,
+				6761A51A28AFF61500135C81 /* ModuleBuilder.swift in Sources */,
+				6761A52B28B0026B00135C81 /* EventCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +372,6 @@
 				INFOPLIST_FILE = CityEvents/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -304,7 +399,6 @@
 				INFOPLIST_FILE = CityEvents/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
