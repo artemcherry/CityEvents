@@ -9,6 +9,7 @@ import UIKit
 
 protocol ModuleBuilderProtocol: AnyObject {
     func createCityEventsModule(router: MainRouter) -> UIViewController?
+    func createEventModule(router: MainRouter, event: EventModel) -> UIViewController?
 }
    
     
@@ -22,6 +23,12 @@ class ModuleBuilder: ModuleBuilderProtocol {
         return view
     }
     
+    func createEventModule(router: MainRouter, event: EventModel) -> UIViewController? {
+        let view = EventView()
+        let presenter = EventPresenter(view: view, router: router, model: event)
+        view.presenter = presenter
+        return view
+    }
     
 
 

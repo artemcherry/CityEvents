@@ -40,6 +40,11 @@ class EventCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        eventImageView.image = nil
+        eventTitle.text = nil
+    }
     private func setupUI() {
         contentView.addSubview(eventImageView)
         contentView.addSubview(eventTitle)
@@ -49,7 +54,7 @@ class EventCollectionCell: UICollectionViewCell {
             eventImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             eventImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             eventImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            eventImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(contentView.bounds.height / 3) * 2),
+            eventImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(contentView.bounds.height / 3) ),
             
             eventTitle.topAnchor.constraint(equalTo: eventImageView.bottomAnchor),
             eventTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

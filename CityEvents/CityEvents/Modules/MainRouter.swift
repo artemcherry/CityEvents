@@ -9,6 +9,7 @@ import UIKit
 
 protocol MainRouterProtocol: AnyObject {
     var screenBuilder: ModuleBuilderProtocol? {get set}
+    func goToEventScreen(event: EventModel)
 }
 
 class MainRouter: MainRouterProtocol {
@@ -20,6 +21,10 @@ class MainRouter: MainRouterProtocol {
         self.screenBuilder = screenBuilder
     }
     
+    func goToEventScreen(event: EventModel) {
+        guard let eventViewController = screenBuilder?.createEventModule(router: self, event: event) else { return }
+        self.navigationController?.pushViewController(eventViewController, animated: true)
+    }
 
     
 }

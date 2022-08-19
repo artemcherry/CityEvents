@@ -9,10 +9,11 @@ import UIKit
 
 protocol CityEventsViewProtocol: AnyObject {
     var presenter: CityEventsPresenterProtocol? {get set}
+    func updateModels(models: [EventModel])
 }
 
 class CityEventsView: UIViewController, CityEventsViewProtocol {
-    
+        
     private let eventsCollectionView: UICollectionView = {
         let layout  = UICollectionViewFlowLayout()
         let estimatedSize: CGFloat = (UIScreen.main.bounds.width  - 60) / 2
@@ -33,7 +34,14 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
         super.viewDidLoad()
         eventsCollectionView.delegate = self
         eventsCollectionView.dataSource = self
+        presenter?.getEvents()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+
     }
     
     private func setupUI() {
@@ -48,6 +56,11 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
             eventsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             eventsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    func updateModels(models: [EventModel]) {
+        self.models = models
+        self.eventsCollectionView.reloadData()
     }
 }
 
@@ -65,5 +78,8 @@ extension CityEventsView: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let models = models else {return}
+        presenter?.openEvent(event: models[indexPath.row])
+    }
 }

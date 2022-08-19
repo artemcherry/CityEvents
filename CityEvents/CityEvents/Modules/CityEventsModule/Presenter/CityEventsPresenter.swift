@@ -7,7 +7,10 @@
 
 import Foundation
 
-protocol CityEventsPresenterProtocol: AnyObject {}
+protocol CityEventsPresenterProtocol: AnyObject {
+    func getEvents()
+    func openEvent(event: EventModel)
+}
 
 class CityEventsPresenter: CityEventsPresenterProtocol {
     
@@ -19,5 +22,19 @@ class CityEventsPresenter: CityEventsPresenterProtocol {
         self.view = view
         self.router = router
         self.interactor = interactor
+    }
+    
+    func getEvents() {
+        interactor?.getEventList(completion: { events, error in
+            if let events = events {
+                self.view?.updateModels(models: events)
+            }
+            else {
+                print("error")
+            }
+        })
+    }
+    func openEvent(event: EventModel) {
+        router?.goToEventScreen(event: event)
     }
 }
