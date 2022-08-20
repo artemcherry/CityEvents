@@ -19,6 +19,5 @@ class DataProvider {
                 completion(nil, error)
             }
         }
-        ApiManager.page += 1
     }
 }

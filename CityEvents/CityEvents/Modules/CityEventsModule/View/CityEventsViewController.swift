@@ -28,7 +28,8 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
     }()
     
     var presenter: CityEventsPresenterProtocol?
-    var models: [EventModel]?
+    var models = [EventModel]()
+    var isLoading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,7 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
     }
     
     func updateModels(models: [EventModel]) {
-        self.models = models
+        self.models.append(contentsOf: models)
         self.eventsCollectionView.reloadData()
     }
 }
@@ -67,19 +68,40 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
 //MARK: CollectionView DataSource&Delegate
 extension CityEventsView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        models?.count ?? 0
+        models.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionCell.identifier, for: indexPath) as? EventCollectionCell else { return UICollectionViewCell() }
-        if let item = models?[indexPath.row] {
-            cell.setupCell(model: item)
-        }
+            cell.setupCell(model: models[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let models = models else {return}
         presenter?.openEvent(event: models[indexPath.row])
+    }
+}
+
+extension CityEventsView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let presenter = presenter, presenter.pagenation else { return }
+        
+        let position = scrollView.contentOffset.y
+        if position > (eventsCollectionView.contentSize.height - 100 - scrollView.frame.size.height) {
+            if !self.isLoading {
+                
+                self.isLoading = true
+                DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+                    
+                    presenter.getEvents()
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.eventsCollectionView.reloadData()
+                        self.isLoading = false
+                    }
+                }
+            }
+        }
     }
 }

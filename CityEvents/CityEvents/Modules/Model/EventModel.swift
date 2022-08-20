@@ -8,8 +8,8 @@
 import Foundation
 
 struct EventModel {
-    let title: String?
-    let description: String?
+    let title: String
+    let description: String
     let images: [String]?
     let startDate: Date?
 //    let endDate: Date?
@@ -18,13 +18,13 @@ struct EventModel {
         self.title = ""
         self.description = ""
         self.images = nil
-        self.startDate = Date()
+        self.startDate = nil
 //        self.endDate = nil
     }
     
     init?(with model: EventNetworkModel) {
-        self.title = model.title
-        self.description = model.description
+        self.title = model.title ?? ""
+        self.description = model.description ?? ""
         self.images = EventModel.addImages(model: model)
         self.startDate = EventModel.addStartDate(model: model)
     }

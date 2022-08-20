@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CityEventsInteractorProtocol: AnyObject {
-    func getEventList(completion: @escaping ([EventModel]?, Error?) -> Void)
+    func getEventList(completion: @escaping ([EventModel]?, Error?) -> Void)    
 }
 
 class CityEventsInteractor: CityEventsInteractorProtocol {

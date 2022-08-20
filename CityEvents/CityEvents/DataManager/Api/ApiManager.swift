@@ -8,11 +8,12 @@
 import Foundation
 
 class ApiManager {
-    
+        
     static var page = 1
+
     
     static func getEventNetworkModelList(completion: @escaping (ApiResponseModel?, Error?) -> Void) {
-        let urlString = "https://kudago.com/public-api/v1.4/events/?fields=title%2Cdescription%2Cimages%2Cdates&location=msk&page=\(page)"
+        let urlString = "https://kudago.com/public-api/v1.4/events/?fields=title%2Cdescription%2Cimages%2Cdates&location=smr&text_format=text&expand=images&page=\(page)"
         guard let url = URL(string: urlString) else { return }
         let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
             if let data = data {
@@ -21,9 +22,9 @@ class ApiManager {
             }
             else {
                 completion(nil, error)
-                print("Something wrong with api")
             }
         }
         dataTask.resume()
+        page += 1
     }
 }

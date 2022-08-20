@@ -25,11 +25,10 @@
 		6761A54628B02A0900135C81 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A54528B02A0900135C81 /* EventView.swift */; };
 		6761A54A28B02A8D00135C81 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A54928B02A8D00135C81 /* EventPresenter.swift */; };
 		6761A54D28B02E7700135C81 /* MainPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A54C28B02E7700135C81 /* MainPictureCell.swift */; };
-		6761A54F28B02E8000135C81 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A54E28B02E8000135C81 /* TitleCell.swift */; };
-		6761A55128B02E8C00135C81 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A55028B02E8C00135C81 /* DescriptionCell.swift */; };
-		6761A55328B02EAA00135C81 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A55228B02EAA00135C81 /* DateCell.swift */; };
+		6761A54F28B02E8000135C81 /* EventOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A54E28B02E8000135C81 /* EventOverviewCell.swift */; };
 		6761A55528B02EBA00135C81 /* PicturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A55428B02EBA00135C81 /* PicturesCell.swift */; };
 		6761A55828B02F6B00135C81 /* PictureCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A55728B02F6B00135C81 /* PictureCollectionCell.swift */; };
+		6761A55A28B0E3CB00135C81 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761A55928B0E3CB00135C81 /* UILabel+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,11 +52,10 @@
 		6761A54528B02A0900135C81 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		6761A54928B02A8D00135C81 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 		6761A54C28B02E7700135C81 /* MainPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPictureCell.swift; sourceTree = "<group>"; };
-		6761A54E28B02E8000135C81 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
-		6761A55028B02E8C00135C81 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
-		6761A55228B02EAA00135C81 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		6761A54E28B02E8000135C81 /* EventOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOverviewCell.swift; sourceTree = "<group>"; };
 		6761A55428B02EBA00135C81 /* PicturesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCell.swift; sourceTree = "<group>"; };
 		6761A55728B02F6B00135C81 /* PictureCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionCell.swift; sourceTree = "<group>"; };
+		6761A55928B0E3CB00135C81 /* UILabel+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				6761A52D28B0062300135C81 /* UIImageView+extension.swift */,
+				6761A55928B0E3CB00135C81 /* UILabel+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,8 +226,8 @@
 		6761A54728B02A6200135C81 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6761A54B28B02E4D00135C81 /* Cells */,
 				6761A54528B02A0900135C81 /* EventView.swift */,
+				6761A54B28B02E4D00135C81 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,9 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				6761A54C28B02E7700135C81 /* MainPictureCell.swift */,
-				6761A54E28B02E8000135C81 /* TitleCell.swift */,
-				6761A55028B02E8C00135C81 /* DescriptionCell.swift */,
-				6761A55228B02EAA00135C81 /* DateCell.swift */,
+				6761A54E28B02E8000135C81 /* EventOverviewCell.swift */,
 				6761A55628B02F5600135C81 /* PicturesCell */,
 			);
 			path = Cells;
@@ -332,10 +329,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6761A55A28B0E3CB00135C81 /* UILabel+extension.swift in Sources */,
 				6761A50928AFE6CF00135C81 /* CityEventsViewController.swift in Sources */,
-				6761A55328B02EAA00135C81 /* DateCell.swift in Sources */,
 				6761A54628B02A0900135C81 /* EventView.swift in Sources */,
-				6761A55128B02E8C00135C81 /* DescriptionCell.swift in Sources */,
 				6761A53328B00A1A00135C81 /* EventModel.swift in Sources */,
 				6761A51C28AFF63500135C81 /* MainRouter.swift in Sources */,
 				6761A53A28B00E1900135C81 /* EventNetworkModel.swift in Sources */,
@@ -350,7 +346,7 @@
 				6761A55828B02F6B00135C81 /* PictureCollectionCell.swift in Sources */,
 				6761A52728AFF7E000135C81 /* CityEventsInteractor.swift in Sources */,
 				6761A51A28AFF61500135C81 /* ModuleBuilder.swift in Sources */,
-				6761A54F28B02E8000135C81 /* TitleCell.swift in Sources */,
+				6761A54F28B02E8000135C81 /* EventOverviewCell.swift in Sources */,
 				6761A52B28B0026B00135C81 /* EventCell.swift in Sources */,
 				6761A54A28B02A8D00135C81 /* EventPresenter.swift in Sources */,
 			);
