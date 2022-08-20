@@ -47,7 +47,7 @@ class CityEventsView: UIViewController, CityEventsViewProtocol {
     
     private func setupUI() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.title = "Events in Moscow"
+        self.title = "Events in Samara"
         
         view.addSubview(eventsCollectionView)
         
