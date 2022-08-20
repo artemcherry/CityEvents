@@ -11,7 +11,6 @@ class ApiManager {
         
     static var page = 1
 
-    
     static func getEventNetworkModelList(completion: @escaping (ApiResponseModel?, Error?) -> Void) {
         let urlString = "https://kudago.com/public-api/v1.4/events/?fields=title%2Cdescription%2Cimages%2Cdates&location=smr&text_format=text&expand=images&page=\(page)"
         guard let url = URL(string: urlString) else { return }
