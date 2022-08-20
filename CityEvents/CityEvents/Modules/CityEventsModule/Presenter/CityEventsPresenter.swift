@@ -10,7 +10,6 @@ import Foundation
 protocol CityEventsPresenterProtocol: AnyObject {
     func getEvents()
     func openEvent(event: EventModel)
-    var pagenation: Bool {get set}
 }
 
 class CityEventsPresenter: CityEventsPresenterProtocol {
@@ -18,9 +17,7 @@ class CityEventsPresenter: CityEventsPresenterProtocol {
     private let view: CityEventsViewProtocol?
     private let router: MainRouterProtocol?
     private let interactor: CityEventsInteractorProtocol?
-    
-    var pagenation = true
-    
+        
     init(view: CityEventsViewProtocol, router: MainRouterProtocol, interactor: CityEventsInteractorProtocol) {
         self.view = view
         self.router = router

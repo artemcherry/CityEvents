@@ -84,7 +84,7 @@ extension CityEventsView: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension CityEventsView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let presenter = presenter, presenter.pagenation else { return }
+        guard let presenter = presenter else { return }
         
         let position = scrollView.contentOffset.y
         if position > (eventsCollectionView.contentSize.height - 100 - scrollView.frame.size.height) {
